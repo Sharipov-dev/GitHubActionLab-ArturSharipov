@@ -1,0 +1,60 @@
+name: Multi-Platform Testing
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ubuntu-job:
+    name: Ubuntu Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Show OS info
+        run: |
+          echo "Runner OS: $RUNNER_OS"
+          uname -a
+
+      - name: Create and display file
+        run: |
+          echo "Hello from Ubuntu runner!" > os-info.txt
+          cat os-info.txt
+
+  macos-job:
+    name: macOS Job
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Show OS info
+        run: |
+          echo "Runner OS: $RUNNER_OS"
+          uname -a
+
+      - name: Create and display file
+        run: |
+          echo "Hello from macOS runner!" > os-info.txt
+          cat os-info.txt
+
+  windows-job:
+    name: Windows Job
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Show OS info
+        shell: pwsh
+        run: |
+          Write-Host "Runner OS: $env:RUNNER_OS"
+          systeminfo | Select-Object -First 25
+
+      - name: Create and display file
+        shell: pwsh
+        run: |
+          "Hello from Windows runner!" | Out-File -FilePath os-info.txt -Encoding utf8
+          Get-Content os-info.txt
