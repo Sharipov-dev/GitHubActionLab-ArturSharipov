@@ -18,7 +18,6 @@ What it does
 
 This shows how GitHub Actions can test software in different environments at the same time.
 
-⸻
 
 Key Concepts Demonstrated
 
@@ -30,8 +29,6 @@ The needs keyword is used in Workflow 1 to define job dependencies. It ensures j
 
 This creates a controlled pipeline where later stages wait for earlier stages to finish successfully.
 
-⸻
-
 runs-on
 
 The runs-on property specifies the operating system used for each job. Examples include:
@@ -41,13 +38,11 @@ The runs-on property specifies the operating system used for each job. Examples 
 
 This allows workflows to run on different platforms and ensures compatibility across environments.
 
-⸻
 
 env
 
 Environment variables can be used to share configuration or system information between steps. In these workflows, environment data such as the runner OS is printed to show how jobs access system information.
 
-⸻
 
 Challenges and Solutions
 
@@ -67,7 +62,6 @@ Challenge 3: Verifying parallel execution
 
 To confirm that jobs were running simultaneously in Workflow 2, the GitHub Actions visualization graph was used to observe parallel execution in real time.
 
-⸻
 
 Conclusion
 
